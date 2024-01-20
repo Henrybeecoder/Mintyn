@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	font-family: "Segoe_UI-Regular", Helvetica;
+}
+
+/* .search-div {
+	width: clamp(10%, 10vw, 50%);
+} */
