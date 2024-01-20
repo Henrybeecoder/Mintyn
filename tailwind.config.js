@@ -18,6 +18,10 @@ export default {
 				overviewgrey: "#787C90",
 				overviewblack: "#262626",
 			},
+			fontFamily: {
+				roboto: ['Roboto', 'sans-serif'],
+			  },
+		
 			// light mode
 			tremor: {
 				brand: {

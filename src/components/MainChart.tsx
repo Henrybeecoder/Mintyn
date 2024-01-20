@@ -41,7 +41,7 @@ const customTooltip = (props: any) => {
 					<div className="space-y-1">
 						<p className="text-tremor-content">{category.dataKey}</p>
 						<p className="font-medium text-tremor-content-emphasis">
-							{category.value} bpm
+							{category.value}
 						</p>
 					</div>
 				</div>
@@ -54,7 +54,7 @@ export default function MainChart() {
 	return (
 		<>
 			<AreaChart
-				className="h-72 w-auto mt-4"
+				className="h-72 w-full mt-4"
 				data={chartdata4}
 				index="date"
 				categories={["Running"]}

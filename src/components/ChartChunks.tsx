@@ -58,7 +58,7 @@ const ChartChunks = () => {
 							categories={["Performance"]}
 							index={"month"}
 							colors={["blue", "#ffcc33"]}
-							className="h-10 w-36"
+							className="h-7 w-28"
 						/>
 					</div>
 				</div>

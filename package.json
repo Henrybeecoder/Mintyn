@@ -13,6 +13,7 @@
     "@tremor/react": "^3.13.2",
     "autoprefixer": "^10.4.17",
     "chart.js": "^4.4.1",
+    "framer-motion": "^10.18.0",
     "postcss": "^8.4.33",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
