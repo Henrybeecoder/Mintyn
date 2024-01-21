@@ -14,7 +14,7 @@ function App() {
 					<SideBar />
 					<div className="bg-[#F7F9FB] p-[33px] w-full">
 						<Routes>
-							<Route index path="/dashboard/overview" element={<Overview />} />
+							<Route index path="/" element={<Overview />} />
 						</Routes>
 					</div>
 				</div>
