@@ -5,6 +5,7 @@ import PaymentsOverview from "../components/Payments";
 import leftbutton_icon from "../assets/icons/leftbutton_icon.svg";
 import rightbutton_icon from "../assets/icons/rightbutton_icon.svg";
 import { useState } from "react";
+import "../App.css"
 
 const Overview = () => {
 	const [monthsRange, setMonthsRange] = useState<string>("1");
@@ -41,7 +42,7 @@ const Overview = () => {
 			<div className="md:flex md:flex-row flex-col gap-1 items-start justify-start">
 				<div className="relative flex flex-col items-start justify-center bg-white py-[30px] p-[22px] md:mb-0 mb-2 mr-2 w-[100%]">
 					<div className="flex items-center justify-between gap-5">
-						<h1 className="text-[#4F4F4F] xl:text-[18px] text-[15px] font-bold text-left">
+						<h1 className="text-[#4F4F4F] xl:text-[18px] text-[15px] font-bold text-left fulldate">
 							Today: {day} {currentMonth} {year}
 						</h1>
 						<div className="absolute right-5 flex items-center justify-center gap-5">
