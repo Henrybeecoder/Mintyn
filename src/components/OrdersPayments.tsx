@@ -9,9 +9,9 @@ export const Orders = () => {
 
 			<div className="relative md:w-[17rem] xs:w-[5rem] bg-[#FDC203] h-[4px] rounded-xl">
 				<motion.div
-					initial={{ opacity: 0, width: -50 }}
+					initial={{ opacity: 0, x: -50 }}
 					animate={{ opacity: 1, x: 0 }}
-					transition={{ duration: 2 }}
+					transition={{ duration: 0.5 }}
 				>
 					<div className="absolute w-[80%] left-0 h-[4px] bg-[#27AE60] rounded-l-xl" />
 				</motion.div>

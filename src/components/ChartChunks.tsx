@@ -21,6 +21,7 @@ import { chartChunksData } from "../data/chartChunksData";
 import { SparkAreaChart } from "@tremor/react";
 import { chartChunkDataInterface } from "../interfaces/data.interfaces";
 
+
 const chartdata = [
 	{
 		month: "Jan",
@@ -56,9 +57,10 @@ const ChartChunks = () => {
 	return (
 		<div className="chart-chunks grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-[9px]">
 			{chartChunksData.map((data: chartChunkDataInterface, index: number) => (
+			
 				<div
 					key={index}
-					className="flex items-center justify-center p-5 gap-[15px] bg-white"
+					className="flex items-center justify-center p-5 gap-[15px] bg-white rounded"
 				>
 					<div className="flex flex-col items-start">
 						<p className="text-[10px] text-overviewgrey">{data.title}</p>
@@ -74,6 +76,7 @@ const ChartChunks = () => {
 						/>
 					</div>
 				</div>
+			
 			))}
 		</div>
 	);
