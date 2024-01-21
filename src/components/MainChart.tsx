@@ -1,32 +1,7 @@
 "use client";
 import { AreaChart } from "@tremor/react";
-
-const chartdata4 = [
-	{
-		date: "Jan",
-		Running: 167,
-	},
-	{
-		date: "Feb",
-		Running: 125,
-	},
-	{
-		date: "Mar",
-		Running: 156,
-	},
-	{
-		date: "Apr",
-		Running: 165,
-	},
-	{
-		date: "May",
-		Running: 153,
-	},
-	{
-		date: "Jun",
-		Running: 124,
-	},
-];
+import { chartdata } from "../data/chartData";
+import { chartdata2 } from "../data/chartData";
 
 const customTooltip = (props: any) => {
 	const { payload, active } = props;
@@ -50,12 +25,12 @@ const customTooltip = (props: any) => {
 	);
 };
 
-export default function MainChart() {
+export default function MainChart({ range }: { range: string }) {
 	return (
 		<>
 			<AreaChart
 				className="h-72 w-full mt-4"
-				data={chartdata4}
+				data={range == "1" ? chartdata : chartdata2}
 				index="date"
 				categories={["Running"]}
 				colors={["blue"]}

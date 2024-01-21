@@ -15,7 +15,13 @@ const PaymentsOverview = () => {
 		[]
 	);
 
-	const [statusValue, setStatusValue] = useState("");
+	const productsArrayName = productsArray.map((data: productsDataInterface) => {
+		return data.name.slice(0, 14) + "...";
+	});
+
+	console.log(productsArrayName);
+
+	const [statusValue, setStatusValue] = useState("All");
 	console.log(optionValue);
 
 	function handleOptionValue(e: React.ChangeEvent<HTMLSelectElement>) {
@@ -92,19 +98,21 @@ const PaymentsOverview = () => {
 		<div className="payments text-[13px]">
 			<h1 className="text-[#262626] text-[36px]">Payments</h1>
 			<div className="flex items-center justify-between gap-3 mt-[17px] py-1">
-				<p>Showing</p>
-				<div className="flex items-center justify-center gap-[13px]">
-					<select
-						id="myDropdown"
-						className="text-[#1875F0] bg-transparent p-[8px]"
-						name="numbers"
-						onChange={handleOptionValue}
-						value={optionValue.toString()}
-					>
-						<option value="20">20</option>
-						<option value="40">40</option>
-					</select>
-					<p>out of 500 payments</p>
+				<div className="flex items-center justify-center">
+					<p className="md:block hidden">Showing</p>
+					<div className="flex items-center justify-center gap-[13px]">
+						<select
+							id="myDropdown"
+							className="text-[#1875F0] bg-transparent p-[8px]"
+							name="numbers"
+							onChange={handleOptionValue}
+							value={optionValue.toString()}
+						>
+							<option value="20">20</option>
+							<option value="40">40</option>
+						</select>
+						<p className="md:block hidden">out of 500 payments</p>
+					</div>
 				</div>
 				<div className="flex items-center justify-center bg-[#F7F9FB]">
 					<img src={search} alt="" className="-mr-4 mb-1 z-30 h-3" />
@@ -117,7 +125,7 @@ const PaymentsOverview = () => {
 				<div className="flex items-center">
 					<select
 						id="myDropdown"
-						className="text-[#414042] w-[150px] py-[8px] px-[16px] rounded-[2px]"
+						className="text-[#414042] md:w-[150px] w-[75px] py-[8px] px-[16px] rounded-[2px]"
 						name="numbers"
 						onChange={handleStatusValue}
 						value={statusValue}
@@ -132,22 +140,26 @@ const PaymentsOverview = () => {
 			</div>
 
 			<div className="text-[14px] text-[#7F8FA4]">
-				<div className="flex items-center justify-center gap-36 bg-[#EAEEF0] px-[26px] py-[12px]">
-					<p>Item Type</p>
-					<p>Price</p>
-					<p>Transaction No</p>
+				<div className="flex items-center justify-between gap-36 bg-[#EAEEF0] px-[26px] pr-10 py-[12px]">
+					<p className="">Item Type</p>
+
+					<p className="">Price</p>
+					<p className="">Transaction No</p>
 					<p>Time</p>
-					<p>Time</p>
+
+					<p></p>
+					<p></p>
 				</div>
 				<div className="flex flex-col">
 					{productsArray.map((data: productsDataInterface, index: number) => (
 						<div
 							key={index}
-							className="flex items-center justify-between border-y border-[#CCCFD4] px-[26px] py-[20px] bg-white"
+							className="flex items-center justify-between border-y border-[#CCCFD4] px-[26px] py-[20px] gap-3 bg-white"
 						>
 							<div className="flex gap-3 items-center justify-center">
 								<img src={vw_icon} alt="" />
-								<p>{data.name}</p>
+								<p className="md:block hidden">{data.name}</p>
+								<p className="md:hidden block">{productsArrayName[index]}</p>
 							</div>
 							<p>${data.price}</p>
 							<p>{data.transaction_no}</p>
@@ -174,7 +186,7 @@ const PaymentsOverview = () => {
 									{data.status}
 								</p>
 							</div>
-							<img src={arrowdown_icon} alt="" />
+							<img className="" src={arrowdown_icon} alt="" />
 						</div>
 					))}
 				</div>

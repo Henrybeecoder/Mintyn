@@ -9,12 +9,36 @@ import pendingorders_icon from "../assets/icons/pendingorders_icon.svg";
 import reconciledorders_icon from "../assets/icons/reconciledorders_icon.svg";
 import merchantprofile_icon from "../assets/icons/merchantprofile_icon.svg";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNav } from "../context/NavContext";
 
 const SideBar = () => {
+	const { navActive, setNavActive } = useNav();
+	console.log(navActive);
+
+	const navigate = useNavigate();
+	const [active, setActive] = useState("overview");
+
+	const handlePageRouter = (route: string, page: string) => {
+		navigate(route);
+		setActive(page);
+	};
+
 	return (
-		<div className="sidebar lg:flex hidden flex-col gap-[32px] mt-6 h-screen">
+		<div
+			className={`sidebar ${
+				!navActive ? "-left-96" : "left-0"
+			} lg:flex lg:static fixed -top-6 lg:py-0 py-10 bg-white z-50 flex-col gap-[32px] mt-6 h-full`}
+		>
+			<span
+				onClick={() => setNavActive && setNavActive(false)}
+				className="material-symbols-outlined material-symbols-outlined absolute top-5 right-5 lg:hidden block cursor-pointer"
+			>
+				close
+			</span>
 			<div className="px-14">
-				<button className="font-bold text-[12px] px-5 py-2 bg-[#27AE60] text-white rounded-3xl">
+				<button className="font-bold text-[12px] px-5 w-40 py-2 bg-[#27AE60] text-white rounded-3xl">
 					GENERATE INVOICE
 				</button>
 			</div>
@@ -27,7 +51,16 @@ const SideBar = () => {
 						animate={{ opacity: 1, x: 0 }}
 						transition={{ duration: 0.5 }}
 					>
-						<div className="flex items-center justify-start gap-[14.86px] transition duration-300 ease-in-out hover:bg-[#e8f1fd] border-l-4 border-solid border-transparent hover:border-[#277cf4]  cursor-pointer py-2 pl-5 pr-5 w-full">
+						<div
+							className={`${
+								active == "overview"
+									? "bg-[#e8f1fd] border-l-4 border-solid border-transparent border-l-[#277cf4]"
+									: ""
+							} flex items-center justify-start gap-[14.86px] transition duration-300 ease-in-out hover:bg-[#e8f1fd] border-l-4 border-solid border-transparent hover:border-[#277cf4]  cursor-pointer py-2 pl-5 pr-5 w-full`}
+							onClick={() =>
+								handlePageRouter("/dashboard/overview", "overview")
+							}
+						>
 							{/* <img
 						className=" 4px] h-[36px] top-0 left-0"
 						alt="Bg row hover"

@@ -1,75 +1,50 @@
 import search from "../assets/icons/search.svg";
 import bell_icon from "../assets/icons/bell_icon.svg";
 import profile_pic from "../assets/images/profile_pic.svg";
-
-import { motion } from "framer-motion"
+import { useNav } from "../context/NavContext";
 
 const Header = () => {
+	const { navActive, setNavActive } = useNav();
+	console.log(navActive);
+
 	return (
-		<div className="header px-16 py-5 flex items-center justify-between shadow-xl shadow-[#EFEEF1]">
-				<motion.div
-						initial={{ opacity: 0, y: 30 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5 }}
-					>
-			<h1 className="text-primary text-[24px] font-black font-roboto font-bold">TransMonitor</h1>
-			</motion.div>
-			
-		
-			<div className="search-div md:flex hidden items-center justify-center gap-5 w-2/4">
-			<motion.div
-						initial={{ opacity: 0, y: 30 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5 }}
-					>
+		<div className="header md:px-16 px-14 py-5 flex items-center justify-between shadow-xl shadow-[#EFEEF1]">
+			<span
+				className="material-symbols-outlined absolute left-5 lg:hidden block cursor-pointer"
+				onClick={() => setNavActive && setNavActive(!navActive)}
+			>
+				menu
+			</span>
+			<h1 className="text-primary text-[24px] md:block hidden font-black font-roboto">
+				TransMonitor
+			</h1>
+			<h1 className="text-primary text-[24px] md:hidden block font-black font-roboto">
+				TM
+			</h1>
+
+			<div className="search-div flex items-center justify-center gap-2 ">
 				<img src={search} alt="" />
-				</motion.div>
-				<motion.div
-						initial={{ opacity: 0, y: 30 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5 }}
-					>
 				<input
 					type="text"
 					placeholder="Search..."
-					className="outline-none placeholder:text-[#979797]"
+					className="outline-none placeholder:text-[#979797] md:w-3/4 w-20"
 				/>
-			</motion.div>
 			</div>
-			<motion.div
-						initial={{ opacity: 0, y: 30 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5 }}
-					>
-			<li className="md:block hidden list-none text-navgrey ">Support</li>
-			</motion.div>
-			<motion.div
-						initial={{ opacity: 0, y: 30 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5 }}
-					>
-			<li className="md:block hidden list-none text-navgrey">FAQ</li>
-			</motion.div>
-			<motion.div
-						initial={{ opacity: 0, y: 30 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5 }}
-					>
-			<img className="md:block hidden" src={bell_icon} alt="" />
-			</motion.div>
-			<motion.div
-						initial={{ opacity: 0, y: 30 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5 }}
-					>
-			<div className="md:flex hidden items-center justify-center gap-3">
-				<div className="flex flex-col text-navgrey items-end">
-					<p className="text-[10px]">Hello</p>
-					<p className="text-[14px]">Oluwaleke Ojo</p>
+			<div className="flex items-center justify-center gap-3">
+				<li className="md:block hidden list-none text-navgrey">Support</li>
+				<li className="md:block hidden list-none text-navgrey">FAQ</li>
+				<img className="" src={bell_icon} alt="" />
+				<div className="flex items-center justify-center gap-3">
+					<div className="sm:flex flex-col text-navgrey items-end pl-3 hidden">
+						<p className="text-[10px]">Hello</p>
+						<div className="flex items-center justify-center gap-1">
+							<p className="text-[14px]">Oluwaleke</p>
+							<span className="md:block hidden text-[14px]">Ojo</span>
+						</div>
+					</div>
+					<img src={profile_pic} alt="" className="rounded-3xl" />
 				</div>
-				<img src={profile_pic} alt="" className="rounded-3xl" />
 			</div>
-			</motion.div>
 		</div>
 	);
 };
