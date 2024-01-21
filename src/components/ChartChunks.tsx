@@ -24,19 +24,31 @@ import { chartChunkDataInterface } from "../interfaces/data.interfaces";
 const chartdata = [
 	{
 		month: "Jan",
-		Performance: 2342,
+		Performance: 600,
 	},
 	{
 		month: "Feb",
-		Performance: 4000000,
+		Performance: 100,
 	},
 	{
 		month: "Mar",
-		Performance: 452000,
+		Performance: 250,
 	},
 	{
 		month: "Apr",
-		Performance: 4000000,
+		Performance: 600,
+	},
+	{
+		month: "May",
+		Performance: 200,
+	},
+	{
+		month: "June",
+		Performance: 1000,
+	},
+	{
+		month: "July",
+		Performance: 1200,
 	},
 ];
 
@@ -48,17 +60,17 @@ const ChartChunks = () => {
 					key={index}
 					className="flex items-center justify-center p-5 gap-[15px] bg-white"
 				>
-					<div className="flex flex-col items-start ">
-						<p className="text-[12px] text-overviewgrey">{data.title}</p>
+					<div className="flex flex-col items-start">
+						<p className="text-[10px] text-overviewgrey">{data.title}</p>
 						<p className="text-[18px] text-overviewblack">{data.amount}</p>
 					</div>
-					<div>
+					<div className="">
 						<SparkAreaChart
 							data={chartdata}
 							categories={["Performance"]}
 							index={"month"}
 							colors={["blue", "#ffcc33"]}
-							className="h-7 w-28"
+							className="h-7 w-20"
 						/>
 					</div>
 				</div>

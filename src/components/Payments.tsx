@@ -95,8 +95,8 @@ const PaymentsOverview = () => {
 	}, []);
 
 	return (
-		<div className="payments text-[13px]">
-			<h1 className="text-[#262626] text-[36px]">Payments</h1>
+		<div className="payments text-[13px] overflow-x-hidden">
+			<h1 className="text-[#262626] md:text-[36px] text-[26px]">Payments</h1>
 			<div className="flex items-center justify-between gap-3 mt-[17px] py-1">
 				<div className="flex items-center justify-center">
 					<p className="md:block hidden">Showing</p>
@@ -140,7 +140,7 @@ const PaymentsOverview = () => {
 			</div>
 
 			<div className="text-[14px] text-[#7F8FA4]">
-				<div className="flex items-center justify-between gap-36 bg-[#EAEEF0] px-[26px] pr-10 py-[12px]">
+				{/* <div className="flex items-center justify-between gap-36 bg-[#EAEEF0] px-[26px] pr-10 py-[12px]">
 					<p className="">Item Type</p>
 
 					<p className="">Price</p>
@@ -149,46 +149,48 @@ const PaymentsOverview = () => {
 
 					<p></p>
 					<p></p>
-				</div>
-				<div className="flex flex-col">
-					{productsArray.map((data: productsDataInterface, index: number) => (
-						<div
-							key={index}
-							className="flex items-center justify-between border-y border-[#CCCFD4] px-[26px] py-[20px] gap-3 bg-white"
-						>
-							<div className="flex gap-3 items-center justify-center">
-								<img src={vw_icon} alt="" />
-								<p className="md:block hidden">{data.name}</p>
-								<p className="md:hidden block">{productsArrayName[index]}</p>
+				</div> */}
+				<div className="flex items-center justify-center w-full">
+					<div className="flex flex-col items-center justify-center w-full md:overflow-x-hidden overflow-x-scroll bg-white">
+						{productsArray.map((data: productsDataInterface, index: number) => (
+							<div
+								key={index}
+								className="flex items-center justify-between border-y border-[#CCCFD4] px-[26px] py-[20px] gap-3 bg-white w-full "
+							>
+								<div className="flex gap-3 items-center justify-center">
+									<img src={vw_icon} alt="" />
+									<p className="md:block hidden">{data.name}</p>
+									<p className="md:hidden block">{productsArrayName[index]}</p>
+								</div>
+								<p>${data.price}</p>
+								<p>{data.transaction_no}</p>
+								<p>{data.time}</p>
+								<div className="flex items-center justify-start gap-[3px] rounded-3xl border h-[33px] min-w-[120px] w-[120px] border-[#CCCFD4] p-[12px]">
+									<div
+										className={`h-[9px] w-[9px] rounded-3xl ${
+											data.status == "Pending"
+												? "bg-[#EBC315]"
+												: data.status == "Un-reconcilled"
+												? "bg-[#C4C4C4]"
+												: "bg-[#27AE60]"
+										} `}
+									/>
+									<p
+										className={`${
+											data.status == "Pending"
+												? "text-[#EBC315]"
+												: data.status == "Un-reconcilled"
+												? "text-[#C4C4C4]"
+												: "text-[#27AE60]"
+										} text-[12px]`}
+									>
+										{data.status}
+									</p>
+								</div>
+								<img className="" src={arrowdown_icon} alt="" />
 							</div>
-							<p>${data.price}</p>
-							<p>{data.transaction_no}</p>
-							<p>{data.time}</p>
-							<div className="flex items-center justify-start gap-[3px] rounded-3xl md:border border-0 h-[33px] w-[120px] border-[#CCCFD4] md:p-[12px] p-0">
-								<div
-									className={`h-[9px] w-[9px] rounded-3xl ${
-										data.status == "Pending"
-											? "bg-[#EBC315]"
-											: data.status == "Un-reconcilled"
-											? "bg-[#C4C4C4]"
-											: "bg-[#27AE60]"
-									} `}
-								/>
-								<p
-									className={`${
-										data.status == "Pending"
-											? "text-[#EBC315]"
-											: data.status == "Un-reconcilled"
-											? "text-[#C4C4C4]"
-											: "text-[#27AE60]"
-									} text-[12px] md:block hidden`}
-								>
-									{data.status}
-								</p>
-							</div>
-							<img className="" src={arrowdown_icon} alt="" />
-						</div>
-					))}
+						))}
+					</div>
 				</div>
 				<div className="flex items-center justify-between mt-[26px]">
 					<p className="text-[black]">{`Showing 1 to ${optionValue} of 500 entries`}</p>

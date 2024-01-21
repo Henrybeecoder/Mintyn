@@ -38,13 +38,13 @@ const Overview = () => {
 		<div className="overview bg-[#F7F9FB] flex flex-col gap-[33px]">
 			<ChartChunks />
 			{/* <div> */}
-			<div className="md:flex md:flex-row flex-col gap-1 items-center justify-center">
-				<div className="flex flex-col items-start justify-center bg-white p-[22px] md:mb-0 mb-2 mr-2 w-full">
+			<div className="md:flex md:flex-row flex-col gap-1 items-start justify-start">
+				<div className="relative flex flex-col items-start justify-center bg-white py-[30px] p-[22px] md:mb-0 mb-2 mr-2 w-[100%]">
 					<div className="flex items-center justify-between gap-5">
-						<h1 className="text-[#4F4F4F] md:text-[18px] text-[12px] font-bold text-left">
+						<h1 className="text-[#4F4F4F] xl:text-[18px] text-[15px] font-bold text-left">
 							Today: {day} {currentMonth} {year}
 						</h1>
-						<div className="flex items-center justify-center gap-5">
+						<div className="absolute right-5 flex items-center justify-center gap-5">
 							<select
 								id="myDropdown"
 								className="text-[#7F8FA4] text-[12px] border border-[#7F8FA4] rounded-md p-[10px] bg-transparent "

@@ -36,6 +36,8 @@ export default function MainChart({ range }: { range: string }) {
 				colors={["blue"]}
 				yAxisWidth={0}
 				customTooltip={customTooltip}
+				showAnimation={true}
+				animationDuration={5}
 			/>
 		</>
 	);

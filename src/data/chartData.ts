@@ -1,27 +1,43 @@
 export const chartdata = [
 	{
 		date: "Jan",
-		Running: 167,
+		Running: 100,
 	},
 	{
 		date: "Feb",
-		Running: 125,
+		Running: 200,
 	},
 	{
 		date: "Mar",
-		Running: 156,
+		Running: 150,
 	},
 	{
 		date: "Apr",
-		Running: 165,
+		Running: 300,
 	},
 	{
 		date: "May",
-		Running: 153,
+		Running: 400,
 	},
 	{
 		date: "Jun",
-		Running: 124,
+		Running: 400,
+	},
+	{
+		date: "July",
+		Running: 400,
+	},
+	{
+		date: "Aug",
+		Running: 600,
+	},
+	{
+		date: "Nov",
+		Running: 800,
+	},
+	{
+		date: "Dec",
+		Running: 400,
 	},
 ];
 export const chartdata2 = [
