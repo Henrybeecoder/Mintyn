@@ -16,10 +16,10 @@ const Header = () => {
 				menu
 			</span>
 			<h1 className="text-primary text-[24px] md:block hidden font-black font-roboto">
-				TransMonitor
+			Gradell 
 			</h1>
 			<h1 className="text-primary text-[24px] md:hidden block font-black font-roboto">
-				TM
+				GD
 			</h1>
 
 			<div className="search-div flex items-center justify-center gap-2 ">
